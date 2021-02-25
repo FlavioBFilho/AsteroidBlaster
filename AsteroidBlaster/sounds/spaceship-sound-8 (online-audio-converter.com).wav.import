@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/spaceship-sound-8 (online-audio-converter.com).wav-38c0989f3c8a8c388d5b65fa684300e7.sample"
+
+[deps]
+
+source_file="res://sounds/spaceship-sound-8 (online-audio-converter.com).wav"
+dest_files=[ "res://.import/spaceship-sound-8 (online-audio-converter.com).wav-38c0989f3c8a8c388d5b65fa684300e7.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0
