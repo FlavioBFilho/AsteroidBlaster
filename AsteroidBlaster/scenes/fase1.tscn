@@ -1,7 +1,7 @@
 [gd_scene load_steps=22 format=2]
 
 [ext_resource path="res://scenes/nave.tscn" type="PackedScene" id=1]
-[ext_resource path="res://sounds/a-journey-through-space-8-bit-music (online-audio-converter.com).wav" type="AudioStream" id=2]
+[ext_resource path="res://sounds/a-journey-through-space-8-bit-music (online-audio-converter.com).ogg" type="AudioStream" id=2]
 [ext_resource path="res://background/background.png" type="Texture" id=3]
 [ext_resource path="res://scripts/spawn_asteroide.gd" type="Script" id=4]
 [ext_resource path="res://scripts/spaw_tiro.gd" type="Script" id=5]
@@ -15,25 +15,25 @@
 [ext_resource path="res://sprites/fuel.png" type="Texture" id=13]
 [ext_resource path="res://scripts/spawn_fuel.gd" type="Script" id=14]
 
-[sub_resource type="DynamicFont" id=3]
+[sub_resource type="DynamicFont" id=1]
 size = 65
 font_data = ExtResource( 8 )
 
-[sub_resource type="StyleBoxFlat" id=4]
+[sub_resource type="StyleBoxFlat" id=2]
 bg_color = Color( 0.839216, 0.894118, 0.109804, 1 )
+
+[sub_resource type="StyleBoxFlat" id=3]
+
+[sub_resource type="StyleBoxFlat" id=4]
+bg_color = Color( 0.243137, 0.682353, 0.0196078, 1 )
 
 [sub_resource type="StyleBoxFlat" id=5]
 
-[sub_resource type="StyleBoxFlat" id=6]
-bg_color = Color( 0.243137, 0.682353, 0.0196078, 1 )
-
-[sub_resource type="StyleBoxFlat" id=7]
-
-[sub_resource type="DynamicFont" id=8]
+[sub_resource type="DynamicFont" id=6]
 size = 38
 font_data = ExtResource( 8 )
 
-[sub_resource type="DynamicFont" id=9]
+[sub_resource type="DynamicFont" id=7]
 size = 27
 font_data = ExtResource( 8 )
 
@@ -104,7 +104,7 @@ margin_left = -80.0
 margin_top = 0.319996
 margin_right = 79.92
 margin_bottom = 0.319992
-custom_fonts/font = SubResource( 3 )
+custom_fonts/font = SubResource( 1 )
 text = "0"
 align = 1
 valign = 1
@@ -121,8 +121,8 @@ anchor_bottom = 0.937
 margin_left = 0.119995
 margin_right = -0.0800171
 margin_bottom = 0.319946
-custom_styles/fg = SubResource( 4 )
-custom_styles/bg = SubResource( 5 )
+custom_styles/fg = SubResource( 2 )
+custom_styles/bg = SubResource( 3 )
 max_value = 10.0
 step = 1.0
 value = 10.0
@@ -144,8 +144,8 @@ anchor_bottom = 0.987
 margin_left = 0.119995
 margin_right = -0.0800171
 margin_bottom = 0.319946
-custom_styles/fg = SubResource( 6 )
-custom_styles/bg = SubResource( 7 )
+custom_styles/fg = SubResource( 4 )
+custom_styles/bg = SubResource( 5 )
 step = 1.0
 value = 100.0
 percent_visible = false
@@ -164,7 +164,7 @@ margin_left = 96.0
 margin_top = 200.0
 margin_right = 276.0
 margin_bottom = 238.0
-custom_fonts/font = SubResource( 8 )
+custom_fonts/font = SubResource( 6 )
 text = "PAUSED"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -177,7 +177,7 @@ margin_left = 64.0
 margin_top = 264.0
 margin_right = 296.0
 margin_bottom = 312.0
-custom_fonts/font = SubResource( 9 )
+custom_fonts/font = SubResource( 7 )
 text = "CONTINUAR"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -190,7 +190,7 @@ margin_left = 80.0
 margin_top = 328.0
 margin_right = 280.0
 margin_bottom = 376.0
-custom_fonts/font = SubResource( 9 )
+custom_fonts/font = SubResource( 7 )
 text = "DESISTIR"
 __meta__ = {
 "_edit_use_anchors_": false
