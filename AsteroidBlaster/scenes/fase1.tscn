@@ -1,0 +1,210 @@
+[gd_scene load_steps=22 format=2]
+
+[ext_resource path="res://scenes/nave.tscn" type="PackedScene" id=1]
+[ext_resource path="res://sounds/a-journey-through-space-8-bit-music (online-audio-converter.com).wav" type="AudioStream" id=2]
+[ext_resource path="res://background/background.png" type="Texture" id=3]
+[ext_resource path="res://scripts/spawn_asteroide.gd" type="Script" id=4]
+[ext_resource path="res://scripts/spaw_tiro.gd" type="Script" id=5]
+[ext_resource path="res://sounds/tiro (online-audio-converter.com).wav" type="AudioStream" id=6]
+[ext_resource path="res://scripts/spawn_boom.gd" type="Script" id=7]
+[ext_resource path="res://Commodore Pixeled.ttf" type="DynamicFontData" id=8]
+[ext_resource path="res://scripts/fase1.gd" type="Script" id=9]
+[ext_resource path="res://scripts/spawn_pwr.gd" type="Script" id=10]
+[ext_resource path="res://sprites/pwr_up.png" type="Texture" id=11]
+[ext_resource path="res://sprites/pause.png" type="Texture" id=12]
+[ext_resource path="res://sprites/fuel.png" type="Texture" id=13]
+[ext_resource path="res://scripts/spawn_fuel.gd" type="Script" id=14]
+
+[sub_resource type="DynamicFont" id=3]
+size = 65
+font_data = ExtResource( 8 )
+
+[sub_resource type="StyleBoxFlat" id=4]
+bg_color = Color( 0.839216, 0.894118, 0.109804, 1 )
+
+[sub_resource type="StyleBoxFlat" id=5]
+
+[sub_resource type="StyleBoxFlat" id=6]
+bg_color = Color( 0.243137, 0.682353, 0.0196078, 1 )
+
+[sub_resource type="StyleBoxFlat" id=7]
+
+[sub_resource type="DynamicFont" id=8]
+size = 38
+font_data = ExtResource( 8 )
+
+[sub_resource type="DynamicFont" id=9]
+size = 27
+font_data = ExtResource( 8 )
+
+[node name="fase1" type="Node2D"]
+script = ExtResource( 9 )
+
+[node name="background" type="Sprite" parent="."]
+position = Vector2( 426.233, 477.49 )
+scale = Vector2( 0.5625, 1.00081 )
+texture = ExtResource( 3 )
+offset = Vector2( -437.747, -157.622 )
+
+[node name="nave" parent="." instance=ExtResource( 1 )]
+position = Vector2( 179.607, 580.521 )
+gravity_scale = 0.0
+
+[node name="game_over" type="Timer" parent="nave"]
+wait_time = 2.0
+
+[node name="spawn_tiro" type="Node2D" parent="nave"]
+position = Vector2( -179.607, -580.521 )
+scale = Vector2( 1.02587, 0.994067 )
+script = ExtResource( 5 )
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="nave/spawn_tiro"]
+stream = ExtResource( 6 )
+
+[node name="power_up" type="Timer" parent="nave/spawn_tiro"]
+wait_time = 10.0
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 2 )
+autoplay = true
+attenuation = 1.46409
+
+[node name="spawn_asteroide" type="Node2D" parent="."]
+script = ExtResource( 4 )
+
+[node name="Timer" type="Timer" parent="spawn_asteroide"]
+wait_time = 1.5
+autostart = true
+
+[node name="spawn_boom" type="Node2D" parent="."]
+script = ExtResource( 7 )
+
+[node name="spawn_pwr" type="Node2D" parent="."]
+script = ExtResource( 10 )
+
+[node name="Timer" type="Timer" parent="spawn_pwr"]
+wait_time = 30.0
+autostart = true
+
+[node name="spawn_fuel" type="Node2D" parent="."]
+script = ExtResource( 14 )
+
+[node name="Timer" type="Timer" parent="spawn_fuel"]
+wait_time = 12.0
+autostart = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Label" type="Label" parent="CanvasLayer"]
+anchor_left = 0.4
+anchor_top = 0.087
+anchor_right = 0.578
+anchor_bottom = 0.212
+margin_left = -80.0
+margin_top = 0.319996
+margin_right = 79.92
+margin_bottom = 0.319992
+custom_fonts/font = SubResource( 3 )
+text = "0"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="ProgressBar" type="ProgressBar" parent="CanvasLayer"]
+visible = false
+anchor_left = 0.733
+anchor_top = 0.9
+anchor_right = 0.978
+anchor_bottom = 0.937
+margin_left = 0.119995
+margin_right = -0.0800171
+margin_bottom = 0.319946
+custom_styles/fg = SubResource( 4 )
+custom_styles/bg = SubResource( 5 )
+max_value = 10.0
+step = 1.0
+value = 10.0
+percent_visible = false
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="pwr_up" type="Sprite" parent="CanvasLayer/ProgressBar"]
+position = Vector2( -11.563, 10.5 )
+scale = Vector2( 0.134914, 0.143981 )
+texture = ExtResource( 11 )
+
+[node name="ProgressBar2" type="ProgressBar" parent="CanvasLayer"]
+anchor_left = 0.733
+anchor_top = 0.95
+anchor_right = 0.978
+anchor_bottom = 0.987
+margin_left = 0.119995
+margin_right = -0.0800171
+margin_bottom = 0.319946
+custom_styles/fg = SubResource( 6 )
+custom_styles/bg = SubResource( 7 )
+step = 1.0
+value = 100.0
+percent_visible = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="fuel" type="Sprite" parent="CanvasLayer/ProgressBar2"]
+position = Vector2( -13, 12 )
+scale = Vector2( 0.1, 0.1 )
+texture = ExtResource( 13 )
+
+[node name="Label2" type="Label" parent="CanvasLayer"]
+visible = false
+margin_left = 96.0
+margin_top = 200.0
+margin_right = 276.0
+margin_bottom = 238.0
+custom_fonts/font = SubResource( 8 )
+text = "PAUSED"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button" type="Button" parent="CanvasLayer"]
+pause_mode = 2
+visible = false
+margin_left = 64.0
+margin_top = 264.0
+margin_right = 296.0
+margin_bottom = 312.0
+custom_fonts/font = SubResource( 9 )
+text = "CONTINUAR"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button2" type="Button" parent="CanvasLayer"]
+pause_mode = 2
+visible = false
+margin_left = 80.0
+margin_top = 328.0
+margin_right = 280.0
+margin_bottom = 376.0
+custom_fonts/font = SubResource( 9 )
+text = "DESISTIR"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TouchScreenButton" type="TouchScreenButton" parent="."]
+position = Vector2( 8, 592 )
+scale = Vector2( 0.174, 0.174 )
+normal = ExtResource( 12 )
+[connection signal="timeout" from="nave/game_over" to="." method="_on_game_over_timeout"]
+[connection signal="timeout" from="nave/spawn_tiro/power_up" to="nave/spawn_tiro" method="_on_power_up_timeout"]
+[connection signal="timeout" from="spawn_asteroide/Timer" to="spawn_asteroide" method="_on_Timer_timeout"]
+[connection signal="timeout" from="spawn_pwr/Timer" to="spawn_pwr" method="_on_Timer_timeout"]
+[connection signal="timeout" from="spawn_fuel/Timer" to="spawn_fuel" method="_on_Timer_timeout"]
+[connection signal="pressed" from="CanvasLayer/Button" to="." method="resume"]
+[connection signal="pressed" from="CanvasLayer/Button2" to="." method="quit"]
+[connection signal="pressed" from="TouchScreenButton" to="." method="pause"]
