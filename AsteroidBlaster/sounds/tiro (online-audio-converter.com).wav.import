@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/tiro (online-audio-converter.com).wav-92eade1196f5b9669bc6781583bff535.sample"
+
+[deps]
+
+source_file="res://sounds/tiro (online-audio-converter.com).wav"
+dest_files=[ "res://.import/tiro (online-audio-converter.com).wav-92eade1196f5b9669bc6781583bff535.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0
