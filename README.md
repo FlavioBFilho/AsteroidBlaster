@@ -1,5 +1,5 @@
 # AsteroidBlaster
-Mini-game Nave vs. Asteoides feito sobre a Godot Engine
+## Mini-game Nave vs. Asteoides feito sobre a Godot Engine
 Abra o projeto na Godot Engine e divirta-se.
 
 * Comandos
